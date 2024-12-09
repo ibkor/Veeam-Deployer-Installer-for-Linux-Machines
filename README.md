@@ -63,7 +63,7 @@ With these scripts, you can:
    - If OpenSSH is not needed on VBR Server, disable it by running disable-openssh.ps1 script.
    
 7. **Review Logs**
-   - Check the log file located at `$LogFilePath` for any errors or installation details.
+   - Check the log files located at `$LogFilePath` for any errors or installation details.
 
 8. **Post-Deployment Steps**
    - SSH can be disabled on Linux machines if desired. Additionally, previously used Linux user accounts for backups can be removed from Linux machines.
