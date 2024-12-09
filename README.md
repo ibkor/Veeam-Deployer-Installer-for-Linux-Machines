@@ -21,6 +21,7 @@ With these scripts, you can:
   - `/opt/veeam/deployment/veeamdeploymentsvc --install-server-certificate server-cert.p12`
   - `/opt/veeam/deployment/veeamdeploymentsvc --install-certificate client-cert.pem`
   - `/opt/veeam/deployment/veeamdeploymentsvc --restart`
+  - `rpm -q veeamdeployment-12.2.0.334-1.x86_64`
 
 ## Usage
 
