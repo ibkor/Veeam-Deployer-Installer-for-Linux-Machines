@@ -1,6 +1,6 @@
 # Veeam Deployer Installer for Linux Machines
 
-This repository contains a set of PowerShell scripts that facilitate the deployment of Veeam Deployment Kit to multiple Linux machines simultaneously, configure the necessary certificates, and manage OpenSSH settings on a Windows server.
+This repository contains a set of PowerShell scripts that facilitate the deployment of Veeam Deployment Kit for certificate based connections to multiple Linux machines simultaneously, configure the necessary certificates, and manage OpenSSH settings on a Windows server.
 
 ## Overview
 
