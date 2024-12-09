@@ -16,8 +16,11 @@ With these scripts, you can:
 - OpenSSH is enabled on VBR Server
 - The `scp` and `ssh` commands available
 - `yum` package manager on affected Linux machines
-- To successfully run the commands included in this script on the Linux machines, ensure that the user has enough permissions.
-
+- Sudo Privileges: The user should have sufficient privileges to run the following commands with `sudo` without being prompted for a password:
+  - `yum install -y veeamdeployment-12.2.0.334-1.x86_64.rpm`
+  - `/opt/veeam/deployment/veeamdeploymentsvc --install-server-certificate server-cert.p12`
+  - `/opt/veeam/deployment/veeamdeploymentsvc --install-certificate client-cert.pem`
+  - `/opt/veeam/deployment/veeamdeploymentsvc --restart`
 
 ## Usage
 
