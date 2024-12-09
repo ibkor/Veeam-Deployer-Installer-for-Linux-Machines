@@ -1,16 +1,19 @@
 # Veeam Deployer Installer for Linux Machines
 
-This repository contains a PowerShell script that facilitates the deployment of Veeam Deployment Kit to multiple Linux machines simultaneously, as well as configuring the necessary certificates for proper operation.
+This repository contains a set of PowerShell scripts that facilitate the deployment of Veeam Deployment Kit to multiple Linux machines simultaneously, configure the necessary certificates, and manage OpenSSH settings on a Windows server.
 
 ## Overview
 
-With this script, you can automate the installation of Veeam Backup & Replication Deployment Kit on all specified Linux machines. The script takes a list of hostnames from a CSV file, transfers the deployment kit to each machine, installs it, and configures the server and client certificates.
-
+With these scripts, you can:
+- Automate the installation of Veeam Backup & Replication Deployment Kit on all specified Linux machines.
+- Verify the success of deployments and log the results.
+- Enable or disable OpenSSH on the Windows server as required.
+  
 ## Prerequisites
 
 - Veeam Backup & Replication Server installed
-- OpenSSH enabled on all target Linux machines
 - PowerShell access to the Veeam Backup & Replication Server
+- OpenSSH is enabled on VBR Server
 - The `scp` and `ssh` commands available
 - `yum` package manager on affected Linux machines
 - To successfully run the commands included in this script on the Linux machines, ensure that the user has enough permissions.
@@ -18,8 +21,12 @@ With this script, you can automate the installation of Veeam Backup & Replicatio
 
 ## Usage
 
+1. **Verify OpenSSH availability on VBR Server**
+   - If OpenSSH is not enabled on VBR Server, enable it by running enable-ssh.ps1.
+     it can be verified with the command:     Get-Service -Name sshd
+
 2. **Prepare Hostnames CSV**
-   - Create a CSV file named `hostnames.csv` with the following format:
+   - Create a CSV file named `hostnames.csv` with the following format and save it on VBR Server:
      ```
      Hostname
      hostname1
@@ -28,7 +35,7 @@ With this script, you can automate the installation of Veeam Backup & Replicatio
      ```
 
 3. **Set Script Variables**
-   - Modify the variables in the script to suit your environment:
+   - Modify the variables in VeeamDeployer script to suit your environment:
      - `$ExportPath`: Location on the VBR server to save the deployment kit.
      - `$csvFilePath`: Path to the `hostnames.csv` file.
      - `$TargetPath`: Destination path on Linux machines where files will be copied.
@@ -37,9 +44,21 @@ With this script, you can automate the installation of Veeam Backup & Replicatio
 
 4. **Run the Script**
    - Open PowerShell on your VBR server.
-   - Execute the script to start the deployment process. The progress will be logged in the specified log file. 
+   - Execute the script to start the deployment process. The progress will be logged in the specified log file.
+   - Enter the user password when prompted.
+  
+5. **Installation Verification**
+   - Modify the variables in DeploymentVerification script to suit your environment:
+      - $csvFilePath = Path to the `hostnames.csv` file.
+      - $username = Username for SSH connections.
+      - $LogFilePath = Path where logs will be saved on VBR Server.
 
-5. **Review Logs**
+   - Run DeploymentVerification.ps1 to verify the installation on the linux servers.
+     
+6. **OpenSSH verification on VBR Server**
+   - If OpenSSH is not needed on VBR Server, disable it by running disable-openssh.ps1 script.
+   
+7. **Review Logs**
    - Check the log file located at `$LogFilePath` for any errors or installation details.
 
 ## Issues
