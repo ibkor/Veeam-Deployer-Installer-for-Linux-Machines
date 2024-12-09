@@ -65,7 +65,3 @@ With these scripts, you can:
 7. **Review Logs**
    - Check the log file located at `$LogFilePath` for any errors or installation details.
 
-## Issues
-
-For any issues or bug reports, please open an issue in the repository.
-
