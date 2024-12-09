@@ -65,3 +65,9 @@ With these scripts, you can:
 7. **Review Logs**
    - Check the log file located at `$LogFilePath` for any errors or installation details.
 
+8. **Post-Deployment Steps**
+   - SSH can be disabled on Linux machines if desired. Additionally, previously used Linux user accounts for backups can be removed from Linux machines.
+   - On the Veeam Backup & Replication side, create a protection group with the following parameters:
+     - At the Type step of the wizard, select Individuals computers.
+     - At the Computers step of the wizard, add Linux Machines and select the Connect using certificate-based authentication method to connect to the computer.
+     - After you create the protection group, Veeam Backup & Replication will rescan the protection group. During the rescan operation, Veeam Backup & Replication will replace the Veeam Deployer Service temporary certificate, connect to the Veeam Deployer Service and install Veeam Agent. 
