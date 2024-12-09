@@ -7,9 +7,6 @@ $username = "root" # Set backup user name here
 # Ensure the log file is cleared at the start
 Clear-Content -Path $LogFilePath -ErrorAction SilentlyContinue
 
-#As requirement, enabling OpenSSH if not enabled.
-
-
 $csvData = Import-Csv -Path $csvFilePath | Select-Object -ExpandProperty Hostname
 
 Generate-VBRBackupServerDeployerKit -ExportPath $ExportPath
