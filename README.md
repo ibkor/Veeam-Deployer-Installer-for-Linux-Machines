@@ -13,7 +13,7 @@ With these scripts, you can:
 
 - Veeam Backup & Replication Server installed
 - PowerShell access to the Veeam Backup & Replication Server
-- OpenSSH is enabled on VBR Server
+- `OpenSSH` is enabled on VBR Server
 - The `scp` and `ssh` commands available
 - `yum` package manager on affected Linux machines
 - Sudo Privileges: The user should have sufficient privileges to run the following commands with `sudo` without being prompted for a password:
@@ -27,7 +27,7 @@ With these scripts, you can:
 
 1. **Verify OpenSSH availability on VBR Server**
    - If OpenSSH is not enabled on VBR Server, enable it by running enable-ssh.ps1.
-     it can be verified with the command:     Get-Service -Name sshd
+     it can be verified with the command:     `Get-Service -Name sshd`
 
 2. **Prepare Hostnames CSV**
    - Create a CSV file named `hostnames.csv` with the following format and save it on VBR Server:
@@ -53,9 +53,9 @@ With these scripts, you can:
   
 5. **Installation Verification**
    - Modify the variables in DeploymentVerification script to suit your environment:
-      - $csvFilePath = Path to the `hostnames.csv` file.
-      - $username = Username for SSH connections.
-      - $LogFilePath = Path where logs will be saved on VBR Server.
+      - `$csvFilePath = Path to the `hostnames.csv` file.
+      - `$username` = Username for SSH connections.
+      - `$LogFilePath` = Path where logs will be saved on VBR Server.
 
    - Run DeploymentVerification.ps1 to verify the installation on the linux servers.
      
