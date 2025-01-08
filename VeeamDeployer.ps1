@@ -1,6 +1,6 @@
 ﻿$ExportPath = "C:\temp"   #Path to save deployment kit on VBR Server
 $csvFilePath = "C:\csv\hostnames.csv" #Where we keep linux hostnames, Prepare CSV content with hostnames only. First line: Hostname, other lines: 1 hostname on each line
-$TargetPath = "/files"  #Path on Linux Machines, where the files will be copied
+$TargetPath = "/tmp/VeeamUpload"  #Path on Linux Machines, where the files will be copied
 $LogFilePath = "C:\logs\installation_log.txt" # Path to log file on VBR Server
 $username = "root" # Set backup user name here
 
