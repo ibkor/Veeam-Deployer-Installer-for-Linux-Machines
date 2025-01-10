@@ -1,6 +1,6 @@
 # Veeam Deployer Installer for Linux Machines
 
-This repository contains a set of PowerShell scripts that facilitate the deployment of Veeam Deployment Kit for certificate based connections to multiple Linux machines simultaneously, configure the necessary certificates, and manage OpenSSH settings on a Windows server.
+This repository contains a set of PowerShell scripts that facilitate the deployment of Veeam Deployment Kit for certificate based connections to multiple Linux machines simultaneously, configure the necessary certificates, and manage OpenSSH settings on a Windows server. With PGAdjuster Script, Protection Group connection types for each server can be changed to Cert-based Auth automatically. The script will remove the servers from the Protection Groups and add them to the same Protection Group with Certificate Based Auth. without changing any other settings and perform the Rescan. During Rescan, required components will be installed automatically. 
 
 ## Overview
 
@@ -68,6 +68,7 @@ With these scripts, you can:
    - Check the log files located at `$LogFilePath` for any errors or installation details.
 
 8. **Post-Deployment Steps**
+   - PGAdjuster script can be run to automatically edit existing Protection Groups and change the connection type to Cert-Based Auth. Or, a manual adjustment can be done as following:
    - SSH can be disabled on Linux machines if desired. Additionally, previously used Linux user accounts for backups can be removed from Linux machines.
    - On the Veeam Backup & Replication side, create a protection group with the following parameters:
      - At the Type step of the wizard, select Individuals computers.
