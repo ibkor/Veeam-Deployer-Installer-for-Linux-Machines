@@ -7,6 +7,7 @@ This repository contains a set of PowerShell scripts that facilitate the deploym
 With these scripts, you can:
 - Automate the installation of Veeam Backup & Replication Deployment Kit on all specified Linux machines.
 - Verify the success of deployments and log the results.
+- Edit existing Protection Groups and change connection type to Certificate Based Authentication.
 - Enable or disable OpenSSH on the Windows server as required.
   
 ## Prerequisites
