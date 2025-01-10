@@ -1,4 +1,5 @@
-﻿$ExportPath = "C:\temp"   #Path to save deployment kit on VBR Server
+# This project is licensed under the MIT License - see the LICENSE file for details.
+$ExportPath = "C:\temp"   #Path to save deployment kit on VBR Server
 $csvFilePath = "C:\csv\hostnames.csv" #Where we keep linux hostnames, Prepare CSV content with hostnames only. First line: Hostname, other lines: 1 hostname on each line
 $TargetPath = "/tmp/VeeamUpload"  #Path on Linux Machines, where the files will be copied
 $LogFilePath = "C:\logs\installation_log.txt" # Path to log file on VBR Server
