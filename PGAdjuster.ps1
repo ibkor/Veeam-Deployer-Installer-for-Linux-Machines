@@ -1,4 +1,5 @@
-﻿$logDir = 'C:\logs'
+# This project is licensed under the MIT License - see the LICENSE file for details.
+ $logDir = 'C:\logs'
 if (-not (Test-Path -Path $logDir)) {
     New-Item -Path $logDir -ItemType Directory
 }
