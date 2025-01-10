@@ -15,7 +15,7 @@ With these scripts, you can:
 - Veeam Backup & Replication Server installed
 - PowerShell access to the Veeam Backup & Replication Server
 - `OpenSSH` is enabled on VBR Server
-- Windows Server 2019 or later.
+- OS on VBR Server is Windows Server 2019 or later.
 - For Windows Server 2016 or earlier, OpenSSH must be enabled manually.
 - The `scp` and `ssh` commands available
 - `yum` package manager on affected Linux machines
