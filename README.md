@@ -6,6 +6,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This repository contains a set of PowerShell scripts that facilitate the deployment of Veeam Deployment Kit for certificate based connections to multiple Linux machines simultaneously, configure the necessary certificates, and manage OpenSSH settings on a Windows server. With PGAdjuster Script, Protection Group connection types for each server can be changed to Cert-based Auth automatically. The script will remove the servers from the Protection Groups and add them to the same Protection Group with Certificate Based Auth. without changing any other settings. It will also install required components to the servers automatically during the final rescan.
 
+Now, the script also detects Linux Distribution and uses either zypper or yum to install. 
+
 ## Overview
 
 With these scripts, you can:
