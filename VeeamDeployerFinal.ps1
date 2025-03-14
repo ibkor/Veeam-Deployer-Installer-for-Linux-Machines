@@ -1,4 +1,4 @@
-$ExportPath = "C:\temp"   #Path to save deployment kit on VBR Server
+ $ExportPath = "C:\temp"   #Path to save deployment kit on VBR Server
 $csvFilePath = "C:\csv\hostnames.csv" #Where we keep linux hostnames, Prepare CSV content with hostnames only. First line: Hostname, other lines: 1 hostname on each line
 $TargetPath = "/tmp/VeeamUpload"  #Path on Linux Machines, where the files will be copied
 $LogFilePath = "C:\logs\installation_log.txt" # Path to log file on VBR Server
@@ -36,7 +36,7 @@ foreach ($hostname in $csvData) {
         Add-Content -Path $LogFilePath -Value $initialmessage
         Add-Content -Path $LogFilePath -Value "$separatorLine"
     
-        $scpOutput = (& { scp -r -v -o Ciphers=aes256-ctr -o MACs=hmac-sha2-256 "$ExportPath/*" $Destination 2>&1 }) | Tee-Object -Variable scpLog
+        $scpOutput = (& { scp -r -v -o "$ExportPath/*" $Destination 2>&1 }) | Tee-Object -Variable scpLog
         
         if ($scpOutput -like "*failed to upload file*" -or $scpOutput -like "*Permission denied*") {
         Write-Host "Transfer failed. Check installation_logs for more information."
@@ -51,7 +51,7 @@ foreach ($hostname in $csvData) {
         Add-Content -Path $LogFilePath -Value $successMessage
 
         # Detect the distribution and choose package manager command
-        $distroOutput = ssh -q -o Ciphers=aes256-ctr -o MACs=hmac-sha2-256 $sshUser "$detectDistro" 2>&1         
+        $distroOutput = ssh -q -o $sshUser "$detectDistro" 2>&1         
         $distroType = $distroOutput.Trim()
 
         Write-Host "Detected distro: $distroOutput"
@@ -73,7 +73,7 @@ foreach ($hostname in $csvData) {
             "sudo /opt/veeam/deployment/veeamdeploymentsvc --install-certificate client-cert.pem; " +
             "sudo /opt/veeam/deployment/veeamdeploymentsvc --restart"
 
-        $output = ssh -q -t -o Ciphers=aes256-ctr -o MACs=hmac-sha2-256 $sshUser "bash -c '$commands'" 2>&1 
+        $output = ssh -q -t -o $sshUser "bash -c '$commands'" 2>&1 
 
         $separatorLine = "=" * 50 
         Add-Content -Path $LogFilePath -Value "$separatorLine"
