@@ -24,6 +24,7 @@ With these scripts, you can:
 - OS on VBR Server is Windows Server 2019 or later.
 - For Windows Server 2016 or earlier, OpenSSH must be enabled manually.
 - The `scp` and `ssh` commands available
+- the package versions in the scripts are veeamdeployment-12.2.0.334-1.x86_64.rpm, verify the actual versions and make necessary changes.
 - `yum` package manager on affected Linux machines
 - Sudo Privileges: The user should have sufficient privileges to run the following commands with `sudo` without being prompted for a password:
   - `yum install -y veeamdeployment-12.2.0.334-1.x86_64.rpm`
