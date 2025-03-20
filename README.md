@@ -56,12 +56,15 @@ With these scripts, you can:
      - `$LogFilePath`: Path where logs will be saved on VBR Server.
      - `$username`: Username for SSH connections.
 
-4. **Run the Script**
+4. **Set VBR Version**
+    - This script is written for VBR v12.2.0.334. If another VBR version is in use, correct the version in the script. Simple search for 12.2.0.334 and replace them with the actual version, or generate the deployment kit manually and copy the name from rpm file. 
+
+5. **Run the Script**
    - Open PowerShell on your VBR server.
    - Execute the script to start the deployment process. The progress will be logged in the specified log file.
    - Enter the user password when prompted.
   
-5. **Installation Verification**
+6. **Installation Verification**
    - Modify the variables in DeploymentVerification script to suit your environment:
       - `$csvFilePath = Path to the `hostnames.csv` file.
       - `$username` = Username for SSH connections.
@@ -69,13 +72,13 @@ With these scripts, you can:
 
    - Run DeploymentVerification.ps1 to verify the installation on the linux servers.
      
-6. **OpenSSH verification on VBR Server**
+7. **OpenSSH verification on VBR Server**
    - If OpenSSH is not needed on VBR Server, disable it by running disable-openssh.ps1 script.
    
-7. **Review Logs**
+8. **Review Logs**
    - Check the log files located at `$LogFilePath` for any errors or installation details.
 
-8. **Post-Deployment Steps**
+9. **Post-Deployment Steps**
    - PGAdjuster script can be run to automatically edit existing Protection Groups and change the connection type to Cert-Based Auth. Or, a manual adjustment can be done as following:
    - SSH can be disabled on Linux machines if desired. Additionally, previously used Linux user accounts for backups can be removed from Linux machines.
    - On the Veeam Backup & Replication side, create a protection group with the following parameters:
